@@ -1,0 +1,1025 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix yang: <http://example.org/yang#> .
+
+yang:ietf-interfaces a yang:Module ;
+    rdfs:label "ietf-interfaces" ;
+    yang:hasChild yang:1_1,
+        yang:2014-05-08,
+        yang:2018-02-20,
+        yang:IETF_NETMOD__Network_Modeling__Working_Group,
+        yang:This_module_contains_a_collection_of_YANG_definitions_for_managing_network_interfaces___Copyright__c__2018_IETF_Trust_and_the_persons_identified_as_authors_of_the_code___All_rights_reserved___Redistribution_and_use_in_source_and_binary_forms__with_or_without_modification__is_permitted_pursuant_to__and_subject_to_the_license_terms_contained_in__the_Simplified_BSD_License_set_forth_in_Section_4_c_of_the_IETF_Trust_s_Legal_Provisions_Relating_to_IETF_Documents__https___trustee_ietf_org_license-info____This_version_of_this_YANG_module_is_part_of_RFC_8343__see_the_RFC_itself_for_full_legal_notices_,
+        yang:WG_Web_____https___datatracker_ietf_org_wg_netmod___WG_List____mailto_netmod_ietf_org___Editor____Martin_Bjorklund____________mailto_mbj_tail-f_com_,
+        yang:arbitrary-names,
+        yang:ietf-yang-types,
+        yang:if,
+        yang:if-mib,
+        yang:interface-ref,
+        yang:interface-state-ref,
+        yang:interface-type,
+        yang:interfaces,
+        yang:interfaces-state,
+        yang:pre-provisioning,
+        yang:urn_ietf_params_xml_ns_yang_ietf-interfaces .
+
+yang:1_1 a yang:Yang-version ;
+    rdfs:label "1.1" .
+
+yang:1__2147483647 a yang:Range ;
+    rdfs:label "1..2147483647" .
+
+yang:2014-05-08 a yang:Revision ;
+    rdfs:label "2014-05-08" ;
+    yang:hasChild yang:Initial_revision_,
+        yang:RFC_7223__A_YANG_Data_Model_for_Interface_Management .
+
+yang:2018-02-20 a yang:Revision ;
+    rdfs:label "2018-02-20" ;
+    yang:hasChild yang:RFC_8343__A_YANG_Data_Model_for_Interface_Management,
+        yang:Updated_to_support_NMDA_ .
+
+yang:3 a yang:Value ;
+    rdfs:label "3" .
+
+yang:4 a yang:Value ;
+    rdfs:label "4" .
+
+yang:5 a yang:Value ;
+    rdfs:label "5" .
+
+yang:6 a yang:Value ;
+    rdfs:label "6" .
+
+yang:7 a yang:Value ;
+    rdfs:label "7" .
+
+yang:A_collection_of_interface-related_statistics_objects_ a yang:Description ;
+    rdfs:label "A collection of interface-related statistics objects." .
+
+yang:A_list_of_references_to_interfaces_layered_on_top_of_this_interface_ a yang:Description ;
+    rdfs:label """A list of references to interfaces layered on top of this
+interface.""" .
+
+yang:A_list_of_references_to_interfaces_layered_underneath_this_interface_ a yang:Description ;
+    rdfs:label """A list of references to interfaces layered underneath this
+interface.""" .
+
+yang:A_textual_description_of_the_interface___A_server_implementation_MAY_map_this_leaf_to_the_ifAlias_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifAlias___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document___Since_ifAlias_is_defined_to_be_stored_in_non-volatile_storage__the_MIB_implementation_MUST_map_ifAlias_to_the_value_of__description__in_the_persistently_stored_configuration_ a yang:Description ;
+    rdfs:label """A textual description of the interface.
+
+A server implementation MAY map this leaf to the ifAlias
+MIB object.  Such an implementation needs to use some
+mechanism to handle the differences in size and characters
+allowed between this leaf and ifAlias.  The definition of
+such a mechanism is outside the scope of this document.
+
+Since ifAlias is defined to be stored in non-volatile
+storage, the MIB implementation MUST map ifAlias to the
+value of 'description' in the persistently stored
+configuration.""" .
+
+yang:An_estimate_of_the_interface_s_current_bandwidth_in_bits_per_second___For_interfaces_that_do_not_vary_in_bandwidth_or_for_those_where_no_accurate_estimation_can__be_made__this_node_should_contain_the_nominal_bandwidth__For_interfaces_that_have_no_concept_of_bandwidth__this_node_is_not_present_ a yang:Description ;
+    rdfs:label """An estimate of the interface's current bandwidth in bits
+per second.  For interfaces that do not vary in
+bandwidth or for those where no accurate estimation can
+
+be made, this node should contain the nominal bandwidth.
+For interfaces that have no concept of bandwidth, this
+node is not present.""" .
+
+yang:An_estimate_of_the_interface_s_current_bandwidth_in_bits_per_second___For_interfaces_that_do_not_vary_in_bandwidth_or_for_those_where_no_accurate_estimation_can_be_made__this_node_should_contain_the_nominal_bandwidth__For_interfaces_that_have_no_concept_of_bandwidth__this_node_is_not_present_ a yang:Description ;
+    rdfs:label """An estimate of the interface's current bandwidth in bits
+per second.  For interfaces that do not vary in
+bandwidth or for those where no accurate estimation can
+be made, this node should contain the nominal bandwidth.
+For interfaces that have no concept of bandwidth, this
+node is not present.""" .
+
+yang:Base_identity_from_which_specific_interface_types_are_derived_ a yang:Description ;
+    rdfs:label """Base identity from which specific interface types are
+derived.""" .
+
+yang:Controls_whether_linkUp_linkDown_SNMP_notifications_should_be_generated_for_this_interface___If_this_node_is_not_configured__the_value__enabled__is_operationally_used_by_the_server_for_interfaces_that_do_not_operate_on_top_of_any_other_interface__i_e___there_are_no__lower-layer-if__entries___and__disabled__otherwise_ a yang:Description ;
+    rdfs:label """Controls whether linkUp/linkDown SNMP notifications
+should be generated for this interface.
+
+If this node is not configured, the value 'enabled' is
+operationally used by the server for interfaces that do
+not operate on top of any other interface (i.e., there are
+no 'lower-layer-if' entries), and 'disabled' otherwise.""" .
+
+yang:Data_nodes_for_the_operational_state_of_interfaces_ a yang:Description ;
+    rdfs:label "Data nodes for the operational state of interfaces." .
+
+yang:Down_due_to_state_of_lower-layer_interface_s__ a yang:Description ;
+    rdfs:label "Down due to state of lower-layer interface(s)." .
+
+yang:For_packet-oriented_interfaces__the_number_of_inbound_packets_that_contained_errors_preventing_them_from_being_deliverable_to_a_higher-layer_protocol___For_character-_oriented_or_fixed-length_interfaces__the_number_of_inbound_transmission_units_that_contained_errors_preventing_them_from_being_deliverable_to_a_higher-layer_protocol___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """For packet-oriented interfaces, the number of inbound
+packets that contained errors preventing them from being
+deliverable to a higher-layer protocol.  For character-
+oriented or fixed-length interfaces, the number of
+inbound transmission units that contained errors
+preventing them from being deliverable to a higher-layer
+protocol.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:For_packet-oriented_interfaces__the_number_of_outbound_packets_that_could_not_be_transmitted_because_of_errors__For_character-oriented_or_fixed-length_interfaces__the_number_of_outbound_transmission_units_that_could_not_be_transmitted_because_of_errors___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """For packet-oriented interfaces, the number of outbound
+packets that could not be transmitted because of errors.
+For character-oriented or fixed-length interfaces, the
+number of outbound transmission units that could not be
+transmitted because of errors.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:For_packet-oriented_interfaces__the_number_of_packets_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol___For_character-oriented_or_fixed-length_interfaces_that_support_protocol_multiplexing__the_number_of_transmission_units_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol__For_any_interface_that_does_not_support_protocol_multiplexing__this_counter_is_not_present__Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """For packet-oriented interfaces, the number of packets
+received via the interface that were discarded because
+of an unknown or unsupported protocol.  For
+character-oriented or fixed-length interfaces that
+support protocol multiplexing, the number of
+transmission units received via the interface that were
+discarded because of an unknown or unsupported protocol.
+For any interface that does not support protocol
+multiplexing, this counter is not present.
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:For_packet-oriented_interfaces__the_number_of_packets_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol___For_character-oriented_or_fixed-length_interfaces_that_support_protocol_multiplexing__the_number_of_transmission_units_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol__For_any_interface_that_does_not_support_protocol_multiplexing__this_counter_is_not_present___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """For packet-oriented interfaces, the number of packets
+received via the interface that were discarded because
+of an unknown or unsupported protocol.  For
+character-oriented or fixed-length interfaces that
+support protocol multiplexing, the number of
+transmission units received via the interface that were
+discarded because of an unknown or unsupported protocol.
+For any interface that does not support protocol
+multiplexing, this counter is not present.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:IETF_NETMOD__Network_Modeling__Working_Group a yang:Organization ;
+    rdfs:label "IETF NETMOD (Network Modeling) Working Group" .
+
+yang:In_some_test_mode_ a yang:Description ;
+    rdfs:label "In some test mode." .
+
+yang:In_some_test_mode___No_operational_packets_can_be_passed_ a yang:Description ;
+    rdfs:label """In some test mode.  No operational packets can
+be passed.""" .
+
+yang:Initial_revision_ a yang:Description ;
+    rdfs:label "Initial revision." .
+
+yang:Interface_parameters_ a yang:Description ;
+    rdfs:label "Interface parameters." .
+
+yang:Not_ready_to_pass_packets_and_not_in_some_test_mode_ a yang:Description ;
+    rdfs:label "Not ready to pass packets and not in some test mode." .
+
+yang:RFC_2863__The_Interfaces_Group_MIB a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCInBroadcastPkts a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifHCInBroadcastPkts""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCInMulticastPkts a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifHCInMulticastPkts""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCOutBroadcastPkts a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifHCOutBroadcastPkts""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCOutMulticastPkts a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifHCOutMulticastPkts""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifLinkUpDownTrapEnable a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifLinkUpDownTrapEnable""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifSpeed__ifHighSpeed a yang:Reference ;
+    rdfs:label """RFC 2863: The Interfaces Group MIB -
+          ifSpeed, ifHighSpeed""" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifAlias a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifAlias" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCInOctets a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifHCInOctets" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCInUcastPkts a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifHCInUcastPkts" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCOutOctets a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifHCOutOctets" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCOutUcastPkts a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifHCOutUcastPkts" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInDiscards a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifInDiscards" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInErrors a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifInErrors" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInUnknownProtos a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifInUnknownProtos" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifIndex a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifIndex" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifLastChange a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifLastChange" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifName a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifName" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOperStatus a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifOperStatus" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOutDiscards a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifOutDiscards" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOutErrors a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifOutErrors" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifPhysAddress a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifPhysAddress" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifType a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifType" .
+
+yang:RFC_7223__A_YANG_Data_Model_for_Interface_Management a yang:Reference ;
+    rdfs:label "RFC 7223: A YANG Data Model for Interface Management" .
+
+yang:RFC_8343__A_YANG_Data_Model_for_Interface_Management a yang:Reference ;
+    rdfs:label "RFC 8343: A YANG Data Model for Interface Management" .
+
+yang:Ready_to_pass_packets_ a yang:Description ;
+    rdfs:label "Ready to pass packets." .
+
+yang:Some_component__typically_hardware__is_missing_ a yang:Description ;
+    rdfs:label "Some component (typically hardware) is missing." .
+
+yang:Status_cannot_be_determined_for_some_reason_ a yang:Description ;
+    rdfs:label "Status cannot be determined for some reason." .
+
+yang:The_current_operational_state_of_the_interface___This_leaf_has_the_same_semantics_as_ifOperStatus_ a yang:Description ;
+    rdfs:label """The current operational state of the interface.
+
+This leaf has the same semantics as ifOperStatus.""" .
+
+yang:The_desired_state_of_the_interface___This_leaf_has_the_same_read_semantics_as_ifAdminStatus_ a yang:Description ;
+    rdfs:label """The desired state of the interface.
+
+This leaf has the same read semantics as ifAdminStatus.""" .
+
+yang:The_device_will_generate_linkUp_linkDown_SNMP_notifications_for_this_interface_ a yang:Description ;
+    rdfs:label """The device will generate linkUp/linkDown SNMP
+notifications for this interface.""" .
+
+yang:The_device_will_not_generate_linkUp_linkDown_SNMP_notifications_for_this_interface_ a yang:Description ;
+    rdfs:label """The device will not generate linkUp/linkDown SNMP
+notifications for this interface.""" .
+
+yang:The_ifIndex_value_for_the_ifEntry_represented_by_this_interface_ a yang:Description ;
+    rdfs:label """The ifIndex value for the ifEntry represented by this
+interface.""" .
+
+yang:The_interface_does_not_pass_any_packets_ a yang:Description ;
+    rdfs:label "The interface does not pass any packets." .
+
+yang:The_interface_s_address_at_its_protocol_sub-layer___For_example__for_an_802_x_interface__this_object_normally_contains_a_Media_Access_Control__MAC__address___The_interface_s_media-specific_modules_must_define_the_bit_and_byte_ordering_and_the_format_of_the_value_of_this_object___For_interfaces_that_do_not_have_such_an_address__e_g___a_serial_line___this_node_is_not_present_ a yang:Description ;
+    rdfs:label """The interface's address at its protocol sub-layer.  For
+example, for an 802.x interface, this object normally
+contains a Media Access Control (MAC) address.  The
+interface's media-specific modules must define the bit
+and byte ordering and the format of the value of this
+object.  For interfaces that do not have such an address
+(e.g., a serial line), this node is not present.""" .
+
+yang:The_list_of_interfaces_on_the_device___System-controlled_interfaces_created_by_the_system_are_always_present_in_this_list__whether_or_not_they_are_configured_ a yang:Description ;
+    rdfs:label """The list of interfaces on the device.
+
+System-controlled interfaces created by the system are
+always present in this list, whether or not they are
+configured.""" .
+
+yang:The_list_of_interfaces_on_the_device___The_status_of_an_interface_is_available_in_this_list_in_the_operational_state___If_the_configuration_of_a_system-controlled_interface_cannot_be_used_by_the_system__e_g___the_interface_hardware_present_does_not_match_the_interface_type___then_the_configuration_is_not_applied_to_the_system-controlled_interface_shown_in_the_operational_state___If_the_configuration_of_a_user-controlled_interface_cannot_be_used_by_the_system__the_configured_interface_is_not_instantiated_in_the_operational_state___System-controlled_interfaces_created_by_the_system_are_always_present_in_this_list_in_the_operational_state__whether_or_not_they_are_configured_ a yang:Description ;
+    rdfs:label """The list of interfaces on the device.
+
+The status of an interface is available in this list in the
+operational state.  If the configuration of a
+system-controlled interface cannot be used by the system
+(e.g., the interface hardware present does not match the
+interface type), then the configuration is not applied to
+the system-controlled interface shown in the operational
+state.  If the configuration of a user-controlled interface
+cannot be used by the system, the configured interface is
+not instantiated in the operational state.
+
+System-controlled interfaces created by the system are
+always present in this list in the operational state,
+whether or not they are configured.""" .
+
+yang:The_name_of_the_interface___A_device_MAY_restrict_the_allowed_values_for_this_leaf__possibly_depending_on_the_type_of_the_interface__For_system-controlled_interfaces__this_leaf_is_the_device-specific_name_of_the_interface___If_a_client_tries_to_create_configuration_for_a_system-controlled_interface_that_is_not_present_in_the_operational_state__the_server_MAY_reject_the_request_if_the_implementation_does_not_support_pre-provisioning_of_interfaces_or_if_the_name_refers_to_an_interface_that_can_never_exist_in_the_system___A_Network_Configuration_Protocol__NETCONF__server_MUST_reply_with_an_rpc-error_with_the_error-tag__invalid-value__in_this_case___If_the_device_supports_pre-provisioning_of_interface_configuration__the__pre-provisioning__feature_is_advertised___If_the_device_allows_arbitrarily_named_user-controlled_interfaces__the__arbitrary-names__feature_is_advertised___When_a_configured_user-controlled_interface_is_created_by_the_system__it_is_instantiated_with_the_same_name_in_the_operational_state___A_server_implementation_MAY_map_this_leaf_to_the_ifName_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifName___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document_ a yang:Description ;
+    rdfs:label """The name of the interface.
+
+A device MAY restrict the allowed values for this leaf,
+possibly depending on the type of the interface.
+For system-controlled interfaces, this leaf is the
+device-specific name of the interface.
+
+If a client tries to create configuration for a
+system-controlled interface that is not present in the
+operational state, the server MAY reject the request if
+the implementation does not support pre-provisioning of
+interfaces or if the name refers to an interface that can
+never exist in the system.  A Network Configuration
+Protocol (NETCONF) server MUST reply with an rpc-error
+with the error-tag 'invalid-value' in this case.
+
+If the device supports pre-provisioning of interface
+configuration, the 'pre-provisioning' feature is
+advertised.
+
+If the device allows arbitrarily named user-controlled
+interfaces, the 'arbitrary-names' feature is advertised.
+
+When a configured user-controlled interface is created by
+the system, it is instantiated with the same name in the
+operational state.
+
+A server implementation MAY map this leaf to the ifName
+MIB object.  Such an implementation needs to use some
+mechanism to handle the differences in size and characters
+allowed between this leaf and ifName.  The definition of
+such a mechanism is outside the scope of this document.""" .
+
+yang:The_name_of_the_interface___A_server_implementation_MAY_map_this_leaf_to_the_ifName_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifName___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document_ a yang:Description ;
+    rdfs:label """The name of the interface.
+
+A server implementation MAY map this leaf to the ifName
+MIB object.  Such an implementation needs to use some
+mechanism to handle the differences in size and characters
+allowed between this leaf and ifName.  The definition of
+such a mechanism is outside the scope of this document.""" .
+
+yang:The_number_of_inbound_packets_that_were_chosen_to_be_discarded_even_though_no_errors_had_been_detected_to_prevent_their_being_deliverable_to_a_higher-layer_protocol___One_possible_reason_for_discarding_such_a_packet_could_be_to_free_up_buffer_space___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of inbound packets that were chosen to be
+discarded even though no errors had been detected to
+prevent their being deliverable to a higher-layer
+protocol.  One possible reason for discarding such a
+packet could be to free up buffer space.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_number_of_outbound_packets_that_were_chosen_to_be_discarded_even_though_no_errors_had_been_detected_to_prevent_their_being_transmitted___One_possible_reason_for_discarding_such_a_packet_could_be_to_free_up_buffer_space___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of outbound packets that were chosen to be
+discarded even though no errors had been detected to
+prevent their being transmitted.  One possible reason
+for discarding such a packet could be to free up buffer
+space.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_addressed_to_a_broadcast_address_at_this_sub-layer___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of packets, delivered by this sub-layer to a
+higher (sub-)layer, that were addressed to a broadcast
+address at this sub-layer.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_addressed_to_a_multicast_address_at_this_sub-layer___For_a_MAC-layer_protocol__this_includes_both_Group_and_Functional_addresses___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of packets, delivered by this sub-layer to a
+higher (sub-)layer, that were addressed to a multicast
+address at this sub-layer.  For a MAC-layer protocol,
+this includes both Group and Functional addresses.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer__Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of packets, delivered by this sub-layer to a
+higher (sub-)layer, that were not addressed to a
+multicast or broadcast address at this sub-layer.
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The number of packets, delivered by this sub-layer to a
+higher (sub-)layer, that were not addressed to a
+multicast or broadcast address at this sub-layer.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_time_on_the_most_recent_occasion_at_which_any_one_or_more_of_this_interface_s_counters_suffered_a_discontinuity___If_no_such_discontinuities_have_occurred_since_the_last_re-initialization_of_the_local_management_subsystem__then_this_node_contains_the_time_the_local_management_subsystem_re-initialized_itself_ a yang:Description ;
+    rdfs:label """The time on the most recent occasion at which any one or
+more of this interface's counters suffered a
+discontinuity.  If no such discontinuities have occurred
+since the last re-initialization of the local management
+subsystem, then this node contains the time the local
+management subsystem re-initialized itself.""" .
+
+yang:The_time_the_interface_entered_its_current_operational_state___If_the_current_state_was_entered_prior_to_the_last_re-initialization_of_the_local_network_management_subsystem__then_this_node_is_not_present_ a yang:Description ;
+    rdfs:label """The time the interface entered its current operational
+state.  If the current state was entered prior to the
+last re-initialization of the local network management
+subsystem, then this node is not present.""" .
+
+yang:The_total_number_of_octets_received_on_the_interface__including_framing_characters___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The total number of octets received on the interface,
+including framing characters.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_total_number_of_octets_transmitted_out_of_the_interface__including_framing_characters___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The total number of octets transmitted out of the
+interface, including framing characters.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_addressed_to_a_broadcast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The total number of packets that higher-level protocols
+requested be transmitted and that were addressed to a
+broadcast address at this sub-layer, including those
+that were discarded or not sent.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_addressed_to_a_multicast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___For_a_MAC-layer_protocol__this_includes_both_Group_and_Functional_addresses___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The total number of packets that higher-level protocols
+requested be transmitted and that were addressed to a
+multicast address at this sub-layer, including those
+that were discarded or not sent.  For a MAC-layer
+protocol, this includes both Group and Functional
+addresses.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__ a yang:Description ;
+    rdfs:label """The total number of packets that higher-level protocols
+requested be transmitted and that were not addressed
+to a multicast or broadcast address at this sub-layer,
+including those that were discarded or not sent.
+
+Discontinuities in the value of this counter can occur
+at re-initialization of the management system and at
+other times as indicated by the value of
+'discontinuity-time'.""" .
+
+yang:The_type_of_the_interface_ a yang:Description ;
+    rdfs:label "The type of the interface." .
+
+yang:The_type_of_the_interface___When_an_interface_entry_is_created__a_server_MAY_initialize_the_type_leaf_with_a_valid_value__e_g___if_it_is_possible_to_derive_the_type_from_the_name_of_the_interface___If_a_client_tries_to_set_the_type_of_an_interface_to_a_value_that_can_never_be_used_by_the_system__e_g___if_the_type_is_not_supported_or_if_the_type_does_not_match_the_name_of_the_interface__the_server_MUST_reject_the_request__A_NETCONF_server_MUST_reply_with_an_rpc-error_with_the_error-tag__invalid-value__in_this_case_ a yang:Description ;
+    rdfs:label """The type of the interface.
+
+When an interface entry is created, a server MAY
+initialize the type leaf with a valid value, e.g., if it
+is possible to derive the type from the name of the
+interface.
+
+If a client tries to set the type of an interface to a
+value that can never be used by the system, e.g., if the
+type is not supported or if the type does not match the
+name of the interface, the server MUST reject the request.
+A NETCONF server MUST reply with an rpc-error with the
+error-tag 'invalid-value' in this case.""" .
+
+yang:This_feature_indicates_that_the_device_allows_user-controlled_interfaces_to_be_named_arbitrarily_ a yang:Description ;
+    rdfs:label """This feature indicates that the device allows user-controlled
+interfaces to be named arbitrarily.""" .
+
+yang:This_feature_indicates_that_the_device_implements_the_IF-MIB_ a yang:Description ;
+    rdfs:label """This feature indicates that the device implements
+the IF-MIB.""" .
+
+yang:This_feature_indicates_that_the_device_supports_pre-provisioning_of_interface_configuration__i_e___it_is_possible_to_configure_an_interface_whose_physical_interface_hardware_is_not_present_on_the_device_ a yang:Description ;
+    rdfs:label """This feature indicates that the device supports
+pre-provisioning of interface configuration, i.e., it is
+possible to configure an interface whose physical interface
+hardware is not present on the device.""" .
+
+yang:This_leaf_contains_the_configured__desired_state_of_the_interface___Systems_that_implement_the_IF-MIB_use_the_value_of_this_leaf_in_the_intended_configuration_to_set_IF-MIB_ifAdminStatus_to__up__or__down__after_an_ifEntry_has_been_initialized__as_described_in_RFC_2863___Changes_in_this_leaf_in_the_intended_configuration_are_reflected_in_ifAdminStatus_ a yang:Description ;
+    rdfs:label """This leaf contains the configured, desired state of the
+interface.
+
+Systems that implement the IF-MIB use the value of this
+leaf in the intended configuration to set
+IF-MIB.ifAdminStatus to 'up' or 'down' after an ifEntry
+has been initialized, as described in RFC 2863.
+
+Changes in this leaf in the intended configuration are
+reflected in ifAdminStatus.""" .
+
+yang:This_module_contains_a_collection_of_YANG_definitions_for_managing_network_interfaces___Copyright__c__2018_IETF_Trust_and_the_persons_identified_as_authors_of_the_code___All_rights_reserved___Redistribution_and_use_in_source_and_binary_forms__with_or_without_modification__is_permitted_pursuant_to__and_subject_to_the_license_terms_contained_in__the_Simplified_BSD_License_set_forth_in_Section_4_c_of_the_IETF_Trust_s_Legal_Provisions_Relating_to_IETF_Documents__https___trustee_ietf_org_license-info____This_version_of_this_YANG_module_is_part_of_RFC_8343__see_the_RFC_itself_for_full_legal_notices_ a yang:Description ;
+    rdfs:label """This module contains a collection of YANG definitions for
+managing network interfaces.
+
+Copyright (c) 2018 IETF Trust and the persons identified as
+authors of the code.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or
+without modification, is permitted pursuant to, and subject
+to the license terms contained in, the Simplified BSD License
+set forth in Section 4.c of the IETF Trust's Legal Provisions
+Relating to IETF Documents
+(https://trustee.ietf.org/license-info).
+
+This version of this YANG module is part of RFC 8343; see
+the RFC itself for full legal notices.""" .
+
+yang:This_type_is_used_by_data_models_that_need_to_reference_interfaces_ a yang:Description ;
+    rdfs:label """This type is used by data models that need to reference
+interfaces.""" .
+
+yang:This_type_is_used_by_data_models_that_need_to_reference_the_operationally_present_interfaces_ a yang:Description ;
+    rdfs:label """This type is used by data models that need to reference
+the operationally present interfaces.""" .
+
+yang:Updated_to_support_NMDA_ a yang:Description ;
+    rdfs:label "Updated to support NMDA." .
+
+yang:WG_Web_____https___datatracker_ietf_org_wg_netmod___WG_List____mailto_netmod_ietf_org___Editor____Martin_Bjorklund____________mailto_mbj_tail-f_com_ a yang:Contact ;
+    rdfs:label """WG Web:   <https://datatracker.ietf.org/wg/netmod/>
+WG List:  <mailto:netmod@ietf.org>
+
+Editor:   Martin Bjorklund
+          <mailto:mbj@tail-f.com>""" .
+
+yang:Waiting_for_some_external_event_ a yang:Description ;
+    rdfs:label "Waiting for some external event." .
+
+yang:_if_interfaces-state_if_interface_if_name a yang:Path ;
+    rdfs:label "/if:interfaces-state/if:interface/if:name" .
+
+yang:_if_interfaces_if_interface_if_name a yang:Path ;
+    rdfs:label "/if:interfaces/if:interface/if:name" .
+
+yang:admin-status a yang:Leaf ;
+    rdfs:label "admin-status" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifAdminStatus,
+        yang:The_desired_state_of_the_interface___This_leaf_has_the_same_read_semantics_as_ifAdminStatus_,
+        yang:deprecated,
+        yang:enumeration,
+        yang:false,
+        yang:if-mib,
+        yang:true .
+
+yang:arbitrary-names a yang:Feature ;
+    rdfs:label "arbitrary-names" ;
+    yang:hasChild yang:This_feature_indicates_that_the_device_allows_user-controlled_interfaces_to_be_named_arbitrarily_ .
+
+yang:bits_second a yang:Units ;
+    rdfs:label "bits/second" .
+
+yang:boolean a yang:Type ;
+    rdfs:label "boolean" .
+
+yang:description a yang:Leaf ;
+    rdfs:label "description" ;
+    yang:hasChild yang:A_textual_description_of_the_interface___A_server_implementation_MAY_map_this_leaf_to_the_ifAlias_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifAlias___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document___Since_ifAlias_is_defined_to_be_stored_in_non-volatile_storage__the_MIB_implementation_MUST_map_ifAlias_to_the_value_of__description__in_the_persistently_stored_configuration_,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifAlias,
+        yang:string .
+
+yang:disabled a yang:Enum ;
+    rdfs:label "disabled" ;
+    yang:hasChild yang:2,
+        yang:The_device_will_not_generate_linkUp_linkDown_SNMP_notifications_for_this_interface_ .
+
+yang:discontinuity-time a yang:Leaf ;
+    rdfs:label "discontinuity-time" ;
+    yang:hasChild yang:The_time_on_the_most_recent_occasion_at_which_any_one_or_more_of_this_interface_s_counters_suffered_a_discontinuity___If_no_such_discontinuities_have_occurred_since_the_last_re-initialization_of_the_local_management_subsystem__then_this_node_contains_the_time_the_local_management_subsystem_re-initialized_itself_,
+        yang:deprecated,
+        yang:true,
+        yang:yang_date-and-time .
+
+yang:dormant a yang:Enum ;
+    rdfs:label "dormant" ;
+    yang:hasChild yang:5,
+        yang:Waiting_for_some_external_event_ .
+
+yang:down a yang:Enum ;
+    rdfs:label "down" ;
+    yang:hasChild yang:2,
+        yang:Not_ready_to_pass_packets_and_not_in_some_test_mode_,
+        yang:The_interface_does_not_pass_any_packets_ .
+
+yang:higher-layer-if a yang:Leaf-list ;
+    rdfs:label "higher-layer-if" ;
+    yang:hasChild yang:A_list_of_references_to_interfaces_layered_on_top_of_this_interface_,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifStackTable,
+        yang:deprecated,
+        yang:false,
+        yang:interface-ref,
+        yang:interface-state-ref .
+
+yang:identityref a yang:Type ;
+    rdfs:label "identityref" ;
+    yang:hasChild yang:interface-type .
+
+yang:ietf-yang-types a yang:Import ;
+    rdfs:label "ietf-yang-types" ;
+    yang:hasChild yang:yang .
+
+yang:if a yang:Prefix ;
+    rdfs:label "if" .
+
+yang:if-index a yang:Leaf ;
+    rdfs:label "if-index" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifIndex,
+        yang:The_ifIndex_value_for_the_ifEntry_represented_by_this_interface_,
+        yang:deprecated,
+        yang:false,
+        yang:if-mib,
+        yang:int32,
+        yang:true .
+
+yang:in-broadcast-pkts a yang:Leaf ;
+    rdfs:label "in-broadcast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCInBroadcastPkts,
+        yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_addressed_to_a_broadcast_address_at_this_sub-layer___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:in-discards a yang:Leaf ;
+    rdfs:label "in-discards" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInDiscards,
+        yang:The_number_of_inbound_packets_that_were_chosen_to_be_discarded_even_though_no_errors_had_been_detected_to_prevent_their_being_deliverable_to_a_higher-layer_protocol___One_possible_reason_for_discarding_such_a_packet_could_be_to_free_up_buffer_space___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter32 .
+
+yang:in-errors a yang:Leaf ;
+    rdfs:label "in-errors" ;
+    yang:hasChild yang:For_packet-oriented_interfaces__the_number_of_inbound_packets_that_contained_errors_preventing_them_from_being_deliverable_to_a_higher-layer_protocol___For_character-_oriented_or_fixed-length_interfaces__the_number_of_inbound_transmission_units_that_contained_errors_preventing_them_from_being_deliverable_to_a_higher-layer_protocol___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInErrors,
+        yang:deprecated,
+        yang:yang_counter32 .
+
+yang:in-multicast-pkts a yang:Leaf ;
+    rdfs:label "in-multicast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCInMulticastPkts,
+        yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_addressed_to_a_multicast_address_at_this_sub-layer___For_a_MAC-layer_protocol__this_includes_both_Group_and_Functional_addresses___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:in-octets a yang:Leaf ;
+    rdfs:label "in-octets" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCInOctets,
+        yang:The_total_number_of_octets_received_on_the_interface__including_framing_characters___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:in-unicast-pkts a yang:Leaf ;
+    rdfs:label "in-unicast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCInUcastPkts,
+        yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer__Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:The_number_of_packets__delivered_by_this_sub-layer_to_a_higher__sub-_layer__that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:in-unknown-protos a yang:Leaf ;
+    rdfs:label "in-unknown-protos" ;
+    yang:hasChild yang:For_packet-oriented_interfaces__the_number_of_packets_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol___For_character-oriented_or_fixed-length_interfaces_that_support_protocol_multiplexing__the_number_of_transmission_units_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol__For_any_interface_that_does_not_support_protocol_multiplexing__this_counter_is_not_present__Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:For_packet-oriented_interfaces__the_number_of_packets_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol___For_character-oriented_or_fixed-length_interfaces_that_support_protocol_multiplexing__the_number_of_transmission_units_received_via_the_interface_that_were_discarded_because_of_an_unknown_or_unsupported_protocol__For_any_interface_that_does_not_support_protocol_multiplexing__this_counter_is_not_present___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifInUnknownProtos,
+        yang:deprecated,
+        yang:yang_counter32 .
+
+yang:int32 a yang:Type ;
+    rdfs:label "int32" ;
+    yang:hasChild yang:1__2147483647 .
+
+yang:interfaces a yang:Container ;
+    rdfs:label "interfaces" ;
+    yang:hasChild yang:Interface_parameters_,
+        yang:interface .
+
+yang:interfaces-state a yang:Container ;
+    rdfs:label "interfaces-state" ;
+    yang:hasChild yang:Data_nodes_for_the_operational_state_of_interfaces_,
+        yang:deprecated,
+        yang:false,
+        yang:interface .
+
+yang:last-change a yang:Leaf ;
+    rdfs:label "last-change" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifLastChange,
+        yang:The_time_the_interface_entered_its_current_operational_state___If_the_current_state_was_entered_prior_to_the_last_re-initialization_of_the_local_network_management_subsystem__then_this_node_is_not_present_,
+        yang:deprecated,
+        yang:false,
+        yang:yang_date-and-time .
+
+yang:link-up-down-trap-enable a yang:Leaf ;
+    rdfs:label "link-up-down-trap-enable" ;
+    yang:hasChild yang:Controls_whether_linkUp_linkDown_SNMP_notifications_should_be_generated_for_this_interface___If_this_node_is_not_configured__the_value__enabled__is_operationally_used_by_the_server_for_interfaces_that_do_not_operate_on_top_of_any_other_interface__i_e___there_are_no__lower-layer-if__entries___and__disabled__otherwise_,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifLinkUpDownTrapEnable,
+        yang:enumeration,
+        yang:if-mib .
+
+yang:lower-layer-down a yang:Enum ;
+    rdfs:label "lower-layer-down" ;
+    yang:hasChild yang:7,
+        yang:Down_due_to_state_of_lower-layer_interface_s__ .
+
+yang:lower-layer-if a yang:Leaf-list ;
+    rdfs:label "lower-layer-if" ;
+    yang:hasChild yang:A_list_of_references_to_interfaces_layered_underneath_this_interface_,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifStackTable,
+        yang:deprecated,
+        yang:false,
+        yang:interface-ref,
+        yang:interface-state-ref .
+
+yang:name a yang:Key,
+        yang:Leaf ;
+    rdfs:label "name" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifName,
+        yang:The_name_of_the_interface___A_device_MAY_restrict_the_allowed_values_for_this_leaf__possibly_depending_on_the_type_of_the_interface__For_system-controlled_interfaces__this_leaf_is_the_device-specific_name_of_the_interface___If_a_client_tries_to_create_configuration_for_a_system-controlled_interface_that_is_not_present_in_the_operational_state__the_server_MAY_reject_the_request_if_the_implementation_does_not_support_pre-provisioning_of_interfaces_or_if_the_name_refers_to_an_interface_that_can_never_exist_in_the_system___A_Network_Configuration_Protocol__NETCONF__server_MUST_reply_with_an_rpc-error_with_the_error-tag__invalid-value__in_this_case___If_the_device_supports_pre-provisioning_of_interface_configuration__the__pre-provisioning__feature_is_advertised___If_the_device_allows_arbitrarily_named_user-controlled_interfaces__the__arbitrary-names__feature_is_advertised___When_a_configured_user-controlled_interface_is_created_by_the_system__it_is_instantiated_with_the_same_name_in_the_operational_state___A_server_implementation_MAY_map_this_leaf_to_the_ifName_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifName___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document_,
+        yang:The_name_of_the_interface___A_server_implementation_MAY_map_this_leaf_to_the_ifName_MIB_object___Such_an_implementation_needs_to_use_some_mechanism_to_handle_the_differences_in_size_and_characters_allowed_between_this_leaf_and_ifName___The_definition_of_such_a_mechanism_is_outside_the_scope_of_this_document_,
+        yang:deprecated,
+        yang:string .
+
+yang:not-present a yang:Enum ;
+    rdfs:label "not-present" ;
+    yang:hasChild yang:6,
+        yang:Some_component__typically_hardware__is_missing_ .
+
+yang:oper-status a yang:Leaf ;
+    rdfs:label "oper-status" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOperStatus,
+        yang:The_current_operational_state_of_the_interface___This_leaf_has_the_same_semantics_as_ifOperStatus_,
+        yang:deprecated,
+        yang:enumeration,
+        yang:false,
+        yang:true .
+
+yang:out-broadcast-pkts a yang:Leaf ;
+    rdfs:label "out-broadcast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCOutBroadcastPkts,
+        yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_addressed_to_a_broadcast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:out-discards a yang:Leaf ;
+    rdfs:label "out-discards" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOutDiscards,
+        yang:The_number_of_outbound_packets_that_were_chosen_to_be_discarded_even_though_no_errors_had_been_detected_to_prevent_their_being_transmitted___One_possible_reason_for_discarding_such_a_packet_could_be_to_free_up_buffer_space___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter32 .
+
+yang:out-errors a yang:Leaf ;
+    rdfs:label "out-errors" ;
+    yang:hasChild yang:For_packet-oriented_interfaces__the_number_of_outbound_packets_that_could_not_be_transmitted_because_of_errors__For_character-oriented_or_fixed-length_interfaces__the_number_of_outbound_transmission_units_that_could_not_be_transmitted_because_of_errors___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifOutErrors,
+        yang:deprecated,
+        yang:yang_counter32 .
+
+yang:out-multicast-pkts a yang:Leaf ;
+    rdfs:label "out-multicast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifHCOutMulticastPkts,
+        yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_addressed_to_a_multicast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___For_a_MAC-layer_protocol__this_includes_both_Group_and_Functional_addresses___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:out-octets a yang:Leaf ;
+    rdfs:label "out-octets" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCOutOctets,
+        yang:The_total_number_of_octets_transmitted_out_of_the_interface__including_framing_characters___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:out-unicast-pkts a yang:Leaf ;
+    rdfs:label "out-unicast-pkts" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifHCOutUcastPkts,
+        yang:The_total_number_of_packets_that_higher-level_protocols_requested_be_transmitted_and_that_were_not_addressed_to_a_multicast_or_broadcast_address_at_this_sub-layer__including_those_that_were_discarded_or_not_sent___Discontinuities_in_the_value_of_this_counter_can_occur_at_re-initialization_of_the_management_system_and_at_other_times_as_indicated_by_the_value_of__discontinuity-time__,
+        yang:deprecated,
+        yang:yang_counter64 .
+
+yang:phys-address a yang:Leaf ;
+    rdfs:label "phys-address" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifPhysAddress,
+        yang:The_interface_s_address_at_its_protocol_sub-layer___For_example__for_an_802_x_interface__this_object_normally_contains_a_Media_Access_Control__MAC__address___The_interface_s_media-specific_modules_must_define_the_bit_and_byte_ordering_and_the_format_of_the_value_of_this_object___For_interfaces_that_do_not_have_such_an_address__e_g___a_serial_line___this_node_is_not_present_,
+        yang:deprecated,
+        yang:false,
+        yang:yang_phys-address .
+
+yang:pre-provisioning a yang:Feature ;
+    rdfs:label "pre-provisioning" ;
+    yang:hasChild yang:This_feature_indicates_that_the_device_supports_pre-provisioning_of_interface_configuration__i_e___it_is_possible_to_configure_an_interface_whose_physical_interface_hardware_is_not_present_on_the_device_ .
+
+yang:speed a yang:Leaf ;
+    rdfs:label "speed" ;
+    yang:hasChild yang:An_estimate_of_the_interface_s_current_bandwidth_in_bits_per_second___For_interfaces_that_do_not_vary_in_bandwidth_or_for_those_where_no_accurate_estimation_can__be_made__this_node_should_contain_the_nominal_bandwidth__For_interfaces_that_have_no_concept_of_bandwidth__this_node_is_not_present_,
+        yang:An_estimate_of_the_interface_s_current_bandwidth_in_bits_per_second___For_interfaces_that_do_not_vary_in_bandwidth_or_for_those_where_no_accurate_estimation_can_be_made__this_node_should_contain_the_nominal_bandwidth__For_interfaces_that_have_no_concept_of_bandwidth__this_node_is_not_present_,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-___________ifSpeed__ifHighSpeed,
+        yang:bits_second,
+        yang:deprecated,
+        yang:false,
+        yang:yang_gauge64 .
+
+yang:statistics a yang:Container ;
+    rdfs:label "statistics" ;
+    yang:hasChild yang:A_collection_of_interface-related_statistics_objects_,
+        yang:deprecated,
+        yang:discontinuity-time,
+        yang:false,
+        yang:in-broadcast-pkts,
+        yang:in-discards,
+        yang:in-errors,
+        yang:in-multicast-pkts,
+        yang:in-octets,
+        yang:in-unicast-pkts,
+        yang:in-unknown-protos,
+        yang:out-broadcast-pkts,
+        yang:out-discards,
+        yang:out-errors,
+        yang:out-multicast-pkts,
+        yang:out-octets,
+        yang:out-unicast-pkts .
+
+yang:testing a yang:Enum ;
+    rdfs:label "testing" ;
+    yang:hasChild yang:3,
+        yang:In_some_test_mode_,
+        yang:In_some_test_mode___No_operational_packets_can_be_passed_ .
+
+yang:type a yang:Leaf ;
+    rdfs:label "type" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB_-_ifType,
+        yang:The_type_of_the_interface_,
+        yang:The_type_of_the_interface___When_an_interface_entry_is_created__a_server_MAY_initialize_the_type_leaf_with_a_valid_value__e_g___if_it_is_possible_to_derive_the_type_from_the_name_of_the_interface___If_a_client_tries_to_set_the_type_of_an_interface_to_a_value_that_can_never_be_used_by_the_system__e_g___if_the_type_is_not_supported_or_if_the_type_does_not_match_the_name_of_the_interface__the_server_MUST_reject_the_request__A_NETCONF_server_MUST_reply_with_an_rpc-error_with_the_error-tag__invalid-value__in_this_case_,
+        yang:deprecated,
+        yang:identityref,
+        yang:true .
+
+yang:unknown a yang:Enum ;
+    rdfs:label "unknown" ;
+    yang:hasChild yang:4,
+        yang:Status_cannot_be_determined_for_some_reason_ .
+
+yang:up a yang:Enum ;
+    rdfs:label "up" ;
+    yang:hasChild yang:1,
+        yang:Ready_to_pass_packets_ .
+
+yang:urn_ietf_params_xml_ns_yang_ietf-interfaces a yang:Namespace ;
+    rdfs:label "urn:ietf:params:xml:ns:yang:ietf-interfaces" .
+
+yang:yang a yang:Prefix ;
+    rdfs:label "yang" .
+
+yang:yang_gauge64 a yang:Type ;
+    rdfs:label "yang:gauge64" .
+
+yang:yang_phys-address a yang:Type ;
+    rdfs:label "yang:phys-address" .
+
+yang:1 a yang:Value ;
+    rdfs:label "1" .
+
+yang:2 a yang:Value ;
+    rdfs:label "2" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifAdminStatus a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifAdminStatus" .
+
+yang:RFC_2863__The_Interfaces_Group_MIB_-_ifStackTable a yang:Reference ;
+    rdfs:label "RFC 2863: The Interfaces Group MIB - ifStackTable" .
+
+yang:enabled a yang:Enum,
+        yang:Leaf ;
+    rdfs:label "enabled" ;
+    yang:hasChild yang:1,
+        yang:RFC_2863__The_Interfaces_Group_MIB_-_ifAdminStatus,
+        yang:The_device_will_generate_linkUp_linkDown_SNMP_notifications_for_this_interface_,
+        yang:This_leaf_contains_the_configured__desired_state_of_the_interface___Systems_that_implement_the_IF-MIB_use_the_value_of_this_leaf_in_the_intended_configuration_to_set_IF-MIB_ifAdminStatus_to__up__or__down__after_an_ifEntry_has_been_initialized__as_described_in_RFC_2863___Changes_in_this_leaf_in_the_intended_configuration_are_reflected_in_ifAdminStatus_,
+        yang:boolean,
+        yang:true .
+
+yang:interface a yang:List ;
+    rdfs:label "interface" ;
+    yang:hasChild yang:The_list_of_interfaces_on_the_device___System-controlled_interfaces_created_by_the_system_are_always_present_in_this_list__whether_or_not_they_are_configured_,
+        yang:The_list_of_interfaces_on_the_device___The_status_of_an_interface_is_available_in_this_list_in_the_operational_state___If_the_configuration_of_a_system-controlled_interface_cannot_be_used_by_the_system__e_g___the_interface_hardware_present_does_not_match_the_interface_type___then_the_configuration_is_not_applied_to_the_system-controlled_interface_shown_in_the_operational_state___If_the_configuration_of_a_user-controlled_interface_cannot_be_used_by_the_system__the_configured_interface_is_not_instantiated_in_the_operational_state___System-controlled_interfaces_created_by_the_system_are_always_present_in_this_list_in_the_operational_state__whether_or_not_they_are_configured_,
+        yang:admin-status,
+        yang:deprecated,
+        yang:description,
+        yang:enabled,
+        yang:higher-layer-if,
+        yang:if-index,
+        yang:last-change,
+        yang:link-up-down-trap-enable,
+        yang:lower-layer-if,
+        yang:name,
+        yang:oper-status,
+        yang:phys-address,
+        yang:speed,
+        yang:statistics,
+        yang:type .
+
+yang:interface-type a yang:Base,
+        yang:Identity ;
+    rdfs:label "interface-type" ;
+    yang:hasChild yang:Base_identity_from_which_specific_interface_types_are_derived_ .
+
+yang:leafref a yang:Type ;
+    rdfs:label "leafref" ;
+    yang:hasChild yang:_if_interfaces-state_if_interface_if_name,
+        yang:_if_interfaces_if_interface_if_name .
+
+yang:string a yang:Type ;
+    rdfs:label "string" .
+
+yang:yang_date-and-time a yang:Type ;
+    rdfs:label "yang:date-and-time" .
+
+yang:enumeration a yang:Type ;
+    rdfs:label "enumeration" ;
+    yang:hasChild yang:disabled,
+        yang:dormant,
+        yang:down,
+        yang:enabled,
+        yang:lower-layer-down,
+        yang:not-present,
+        yang:testing,
+        yang:unknown,
+        yang:up .
+
+yang:interface-ref a yang:Type,
+        yang:Typedef ;
+    rdfs:label "interface-ref" ;
+    yang:hasChild yang:This_type_is_used_by_data_models_that_need_to_reference_interfaces_,
+        yang:leafref .
+
+yang:interface-state-ref a yang:Type,
+        yang:Typedef ;
+    rdfs:label "interface-state-ref" ;
+    yang:hasChild yang:This_type_is_used_by_data_models_that_need_to_reference_the_operationally_present_interfaces_,
+        yang:deprecated,
+        yang:leafref .
+
+yang:if-mib a yang:Feature,
+        yang:If-feature ;
+    rdfs:label "if-mib" ;
+    yang:hasChild yang:RFC_2863__The_Interfaces_Group_MIB,
+        yang:This_feature_indicates_that_the_device_implements_the_IF-MIB_ .
+
+yang:yang_counter32 a yang:Type ;
+    rdfs:label "yang:counter32" .
+
+yang:true a yang:Default,
+        yang:Mandatory ;
+    rdfs:label "true" .
+
+yang:yang_counter64 a yang:Type ;
+    rdfs:label "yang:counter64" .
+
+yang:false a yang:Config ;
+    rdfs:label "false" .
+
+yang:deprecated a yang:Status ;
+    rdfs:label "deprecated" .
+
