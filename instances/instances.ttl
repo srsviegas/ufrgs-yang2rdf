@@ -5,30 +5,321 @@
 
 inst:eth0_ipv4 a ip:ipv4-address ;
     ip:interface inst:eth0 ;
-    ip:ip "192.168.10.1" ;
-    ip:prefix-length 24 .
+    ip:ip "172.16.0.100" ;
+    ip:prefix-length 29 .
 
 inst:eth0_ipv6 a ip:ipv6-address ;
     ip:interface inst:eth0 ;
-    ip:ip "fe80::1" .
-
-inst:eth1_ipv4 a ip:ipv4-address ;
-    ip:interface inst:eth1 ;
-    ip:ip "10.0.0.5" ;
-    ip:prefix-length 24 .
-
-inst:eth2 a if:Interface ;
-    if:enabled true ;
-    if:name "eth2" ;
-    if:oper-status "up" .
+    ip:ip "fe80::9561:eafb" .
 
 inst:eth1 a if:Interface ;
     if:enabled true ;
     if:name "eth1" ;
+    if:oper-status "up" .
+
+inst:eth10_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth10 ;
+    ip:ip "192.168.90.29" ;
+    ip:prefix-length 28 .
+
+inst:eth11_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth11 ;
+    ip:ip "192.168.160.62" ;
+    ip:prefix-length 25 .
+
+inst:eth11_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth11 ;
+    ip:ip "fe80::97e1:e14d" .
+
+inst:eth12_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth12 ;
+    ip:ip "192.168.204.86" ;
+    ip:prefix-length 29 .
+
+inst:eth13_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth13 ;
+    ip:ip "192.168.0.5" ;
+    ip:prefix-length 29 .
+
+inst:eth14_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth14 ;
+    ip:ip "10.0.0.141" ;
+    ip:prefix-length 28 .
+
+inst:eth15_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth15 ;
+    ip:ip "192.168.162.102" ;
+    ip:prefix-length 24 .
+
+inst:eth16_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth16 ;
+    ip:ip "192.168.223.146" ;
+    ip:prefix-length 27 .
+
+inst:eth17_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth17 ;
+    ip:ip "172.29.0.216" ;
+    ip:prefix-length 27 .
+
+inst:eth17_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth17 ;
+    ip:ip "fe80::81d2:8823" .
+
+inst:eth18_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth18 ;
+    ip:ip "10.0.0.241" ;
+    ip:prefix-length 27 .
+
+inst:eth19_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth19 ;
+    ip:ip "172.30.0.50" ;
+    ip:prefix-length 26 .
+
+inst:eth20 a if:Interface ;
+    if:enabled true ;
+    if:name "eth20" ;
+    if:oper-status "up" .
+
+inst:eth21_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth21 ;
+    ip:ip "172.21.0.72" ;
+    ip:prefix-length 30 .
+
+inst:eth22_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth22 ;
+    ip:ip "192.168.242.17" ;
+    ip:prefix-length 24 .
+
+inst:eth23_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth23 ;
+    ip:ip "172.27.0.89" ;
+    ip:prefix-length 28 .
+
+inst:eth24_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth24 ;
+    ip:ip "10.0.0.191" ;
+    ip:prefix-length 26 .
+
+inst:eth25_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth25 ;
+    ip:ip "10.0.0.103" ;
+    ip:prefix-length 26 .
+
+inst:eth25_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth25 ;
+    ip:ip "fe80::5316:27de" .
+
+inst:eth26_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth26 ;
+    ip:ip "10.0.0.83" ;
+    ip:prefix-length 24 .
+
+inst:eth26_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth26 ;
+    ip:ip "fe80::b991:791f" .
+
+inst:eth27_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth27 ;
+    ip:ip "192.168.130.93" ;
+    ip:prefix-length 24 .
+
+inst:eth28 a if:Interface ;
+    if:enabled true ;
+    if:name "eth28" ;
     if:oper-status "down" .
 
-inst:eth0 a if:Interface ;
+inst:eth29_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth29 ;
+    ip:ip "10.0.0.194" ;
+    ip:prefix-length 29 .
+
+inst:eth2_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth2 ;
+    ip:ip "10.0.0.181" ;
+    ip:prefix-length 28 .
+
+inst:eth2_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth2 ;
+    ip:ip "fe80::c1ad:8773" .
+
+inst:eth3 a if:Interface ;
     if:enabled true ;
-    if:name "eth0" ;
+    if:name "eth3" ;
     if:oper-status "up" .
+
+inst:eth4_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth4 ;
+    ip:ip "192.168.5.98" ;
+    ip:prefix-length 27 .
+
+inst:eth4_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth4 ;
+    ip:ip "fe80::70be:3cdf" .
+
+inst:eth5_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth5 ;
+    ip:ip "10.0.0.1" ;
+    ip:prefix-length 24 .
+
+inst:eth5_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth5 ;
+    ip:ip "fe80::c1d6:6365" .
+
+inst:eth6_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth6 ;
+    ip:ip "172.27.0.57" ;
+    ip:prefix-length 24 .
+
+inst:eth7_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth7 ;
+    ip:ip "172.27.0.32" ;
+    ip:prefix-length 30 .
+
+inst:eth8_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth8 ;
+    ip:ip "172.18.0.39" ;
+    ip:prefix-length 25 .
+
+inst:eth8_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth8 ;
+    ip:ip "fe80::e1ed:8822" .
+
+inst:eth9_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth9 ;
+    ip:ip "192.168.19.252" ;
+    ip:prefix-length 30 .
+
+inst:eth9_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth9 ;
+    ip:ip "fe80::e381:c182" .
+
+inst:eth10 a if:Interface ;
+    if:enabled false ;
+    if:name "eth10" ;
+    if:oper-status "down" .
+
+inst:eth12 a if:Interface ;
+    if:enabled true ;
+    if:name "eth12" ;
+    if:oper-status "down" .
+
+inst:eth13 a if:Interface ;
+    if:enabled true ;
+    if:name "eth13" ;
+    if:oper-status "down" .
+
+inst:eth14 a if:Interface ;
+    if:enabled false ;
+    if:name "eth14" ;
+    if:oper-status "up" .
+
+inst:eth15 a if:Interface ;
+    if:enabled false ;
+    if:name "eth15" ;
+    if:oper-status "down" .
+
+inst:eth16 a if:Interface ;
+    if:enabled true ;
+    if:name "eth16" ;
+    if:oper-status "down" .
+
+inst:eth18 a if:Interface ;
+    if:enabled false ;
+    if:name "eth18" ;
+    if:oper-status "down" .
+
+inst:eth19 a if:Interface ;
+    if:enabled true ;
+    if:name "eth19" ;
+    if:oper-status "down" .
+
+inst:eth21 a if:Interface ;
+    if:enabled false ;
+    if:name "eth21" ;
+    if:oper-status "up" .
+
+inst:eth22 a if:Interface ;
+    if:enabled true ;
+    if:name "eth22" ;
+    if:oper-status "down" .
+
+inst:eth23 a if:Interface ;
+    if:enabled false ;
+    if:name "eth23" ;
+    if:oper-status "up" .
+
+inst:eth24 a if:Interface ;
+    if:enabled true ;
+    if:name "eth24" ;
+    if:oper-status "down" .
+
+inst:eth27 a if:Interface ;
+    if:enabled true ;
+    if:name "eth27" ;
+    if:oper-status "down" .
+
+inst:eth29 a if:Interface ;
+    if:enabled false ;
+    if:name "eth29" ;
+    if:oper-status "down" .
+
+inst:eth6 a if:Interface ;
+    if:enabled true ;
+    if:name "eth6" ;
+    if:oper-status "down" .
+
+inst:eth7 a if:Interface ;
+    if:enabled true ;
+    if:name "eth7" ;
+    if:oper-status "up" .
+
+inst:eth0 a if:Interface ;
+    if:enabled false ;
+    if:name "eth0" ;
+    if:oper-status "down" .
+
+inst:eth11 a if:Interface ;
+    if:enabled true ;
+    if:name "eth11" ;
+    if:oper-status "down" .
+
+inst:eth17 a if:Interface ;
+    if:enabled false ;
+    if:name "eth17" ;
+    if:oper-status "down" .
+
+inst:eth2 a if:Interface ;
+    if:enabled true ;
+    if:name "eth2" ;
+    if:oper-status "down" .
+
+inst:eth25 a if:Interface ;
+    if:enabled false ;
+    if:name "eth25" ;
+    if:oper-status "up" .
+
+inst:eth26 a if:Interface ;
+    if:enabled true ;
+    if:name "eth26" ;
+    if:oper-status "up" .
+
+inst:eth4 a if:Interface ;
+    if:enabled false ;
+    if:name "eth4" ;
+    if:oper-status "down" .
+
+inst:eth5 a if:Interface ;
+    if:enabled true ;
+    if:name "eth5" ;
+    if:oper-status "down" .
+
+inst:eth8 a if:Interface ;
+    if:enabled true ;
+    if:name "eth8" ;
+    if:oper-status "down" .
+
+inst:eth9 a if:Interface ;
+    if:enabled false ;
+    if:name "eth9" ;
+    if:oper-status "down" .
 

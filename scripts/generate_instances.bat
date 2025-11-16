@@ -1,3 +1,3 @@
 @echo off
 
-py instances/generate.py instances/instances.ttl
+py instances/generate.py instances/instances.ttl 30
