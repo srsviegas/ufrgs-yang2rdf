@@ -1,0 +1,397 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix yang: <http://example.org/yang#> .
+
+yang:ietf-ip a yang:Module ;
+    rdfs:label "ietf-ip" ;
+    yang:Contact """WG Web:   <https://datatracker.ietf.org/wg/netmod/>
+WG List:  <mailto:netmod@ietf.org>
+
+Editor:   Martin Bjorklund
+          <mailto:mbj@tail-f.com>""" ;
+    yang:Description """Indicates support for configuring non-contiguous
+subnet masks.""",
+        """Indicates support for privacy extensions for stateless address
+autoconfiguration in IPv6.""",
+        "Initial revision.",
+        """This module contains a collection of YANG definitions for
+managing IP implementations.
+
+Copyright (c) 2018 IETF Trust and the persons identified as
+authors of the code.  All rights reserved.
+
+Redistribution and use in source and binary forms, with or
+without modification, is permitted pursuant to, and subject
+to the license terms contained in, the Simplified BSD License
+set forth in Section 4.c of the IETF Trust's Legal Provisions
+Relating to IETF Documents
+(https://trustee.ietf.org/license-info).
+
+This version of this YANG module is part of RFC 8344; see
+the RFC itself for full legal notices.""",
+        "Updated to support NMDA." ;
+    yang:Feature "ipv4-non-contiguous-netmasks",
+        "ipv6-privacy-autoconf" ;
+    yang:Import "ietf-inet-types",
+        "ietf-interfaces",
+        "ietf-yang-types" ;
+    yang:Namespace "urn:ietf:params:xml:ns:yang:ietf-ip" ;
+    yang:Organization "IETF NETMOD (Network Modeling) Working Group" ;
+    yang:Prefix "if",
+        "inet",
+        "ip",
+        "yang" ;
+    yang:Reference """RFC 4941: Privacy Extensions for Stateless Address
+          Autoconfiguration in IPv6""",
+        "RFC 7277: A YANG Data Model for IP Management",
+        "RFC 8344: A YANG Data Model for IP Management" ;
+    yang:Revision "2014-06-16",
+        "2018-02-22" ;
+    yang:Yang-version "1.1" ;
+    yang:hasChild yang:_if_interfaces-state_if_interface,
+        yang:_if_interfaces_if_interface,
+        yang:ip-address-origin,
+        yang:neighbor-origin .
+
+yang:_if_interfaces-state_if_interface a yang:Augment ;
+    rdfs:label "/if:interfaces-state/if:interface" ;
+    yang:Description "Data nodes for the operational state of IP on interfaces." ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:ipv4,
+        yang:ipv6 .
+
+yang:_if_interfaces_if_interface a yang:Augment ;
+    rdfs:label "/if:interfaces/if:interface" ;
+    yang:Description """IP parameters on interfaces.
+
+If an interface is not capable of running IP, the server
+must not allow the client to configure these parameters.""" ;
+    yang:hasChild yang:ipv4,
+        yang:ipv6 .
+
+yang:autoconf a yang:Container ;
+    rdfs:label "autoconf" ;
+    yang:Description """Parameters to control the autoconfiguration of IPv6
+addresses, as described in RFC 4862.""" ;
+    yang:Reference "RFC 4862: IPv6 Stateless Address Autoconfiguration" ;
+    yang:hasChild yang:create-global-addresses,
+        yang:create-temporary-addresses,
+        yang:temporary-preferred-lifetime,
+        yang:temporary-valid-lifetime .
+
+yang:create-global-addresses a yang:Leaf ;
+    rdfs:label "create-global-addresses" ;
+    yang:Default "true" ;
+    yang:Description """If enabled, the host creates global addresses as
+described in RFC 4862.""" ;
+    yang:Reference """RFC 4862: IPv6 Stateless Address Autoconfiguration
+          Section 5.5""" ;
+    yang:Type "boolean" .
+
+yang:create-temporary-addresses a yang:Leaf ;
+    rdfs:label "create-temporary-addresses" ;
+    yang:Default "false" ;
+    yang:Description """If enabled, the host creates temporary addresses as
+described in RFC 4941.""" ;
+    yang:If-feature "ipv6-privacy-autoconf" ;
+    yang:Reference """RFC 4941: Privacy Extensions for Stateless Address
+          Autoconfiguration in IPv6""" ;
+    yang:Type "boolean" .
+
+yang:dup-addr-detect-transmits a yang:Leaf ;
+    rdfs:label "dup-addr-detect-transmits" ;
+    yang:Default "1" ;
+    yang:Description """The number of consecutive Neighbor Solicitation messages
+sent while performing Duplicate Address Detection on a
+tentative address.  A value of zero indicates that
+Duplicate Address Detection is not performed on
+tentative addresses.  A value of one indicates a single
+transmission with no follow-up retransmissions.""" ;
+    yang:Reference "RFC 4862: IPv6 Stateless Address Autoconfiguration" ;
+    yang:Type "uint32" .
+
+yang:ip-address-origin a yang:Typedef ;
+    rdfs:label "ip-address-origin" ;
+    yang:Description "The origin of an address." ;
+    yang:Enum "dhcp",
+        "link-layer",
+        "other",
+        "random",
+        "static" ;
+    yang:Type "enumeration" .
+
+yang:is-router a yang:Leaf ;
+    rdfs:label "is-router" ;
+    yang:Config "false" ;
+    yang:Description "Indicates that the neighbor node acts as a router." ;
+    yang:Status "deprecated" ;
+    yang:Type "empty" .
+
+yang:link-layer-address a yang:Leaf ;
+    rdfs:label "link-layer-address" ;
+    yang:Description "The link-layer address of the neighbor node.",
+        """The link-layer address of the neighbor node.
+
+In the operational state, if the neighbor's 'state' leaf
+is 'incomplete', this leaf is not instantiated.""" ;
+    yang:Mandatory "true" ;
+    yang:Status "deprecated" ;
+    yang:Type "yang:phys-address" .
+
+yang:neighbor-origin a yang:Typedef ;
+    rdfs:label "neighbor-origin" ;
+    yang:Description "The origin of a neighbor entry." ;
+    yang:Enum "dynamic",
+        "other",
+        "static" ;
+    yang:Type "enumeration" .
+
+yang:netmask a yang:Leaf ;
+    rdfs:label "netmask" ;
+    yang:Description "The subnet specified as a netmask." ;
+    yang:If-feature "ipv4-non-contiguous-netmasks" ;
+    yang:Status "deprecated" ;
+    yang:Type "yang:dotted-quad" .
+
+yang:state a yang:Leaf ;
+    rdfs:label "state" ;
+    yang:Config "false" ;
+    yang:Description """The Neighbor Unreachability Detection state of this
+entry.""" ;
+    yang:Enum "delay",
+        "incomplete",
+        "probe",
+        "reachable",
+        "stale" ;
+    yang:Reference """RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+          Section 7.3.2""" ;
+    yang:Status "deprecated" ;
+    yang:Type "enumeration" .
+
+yang:status a yang:Leaf ;
+    rdfs:label "status" ;
+    yang:Config "false" ;
+    yang:Description """The status of an address.  Most of the states correspond
+to states from the IPv6 Stateless Address
+Autoconfiguration protocol.""" ;
+    yang:Enum "deprecated",
+        "duplicate",
+        "inaccessible",
+        "invalid",
+        "optimistic",
+        "preferred",
+        "tentative",
+        "unknown" ;
+    yang:Reference """RFC 4293: Management Information Base for the
+          Internet Protocol (IP)
+          - IpAddressStatusTC
+RFC 4862: IPv6 Stateless Address Autoconfiguration""" ;
+    yang:Status "deprecated" ;
+    yang:Type "enumeration" .
+
+yang:subnet a yang:Choice ;
+    rdfs:label "subnet" ;
+    yang:Description """The subnet can be specified as a prefix length or,
+if the server supports non-contiguous netmasks, as
+a netmask.""" ;
+    yang:Mandatory "true" ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:netmask,
+        yang:prefix-length .
+
+yang:temporary-preferred-lifetime a yang:Leaf ;
+    rdfs:label "temporary-preferred-lifetime" ;
+    yang:Default "86400" ;
+    yang:Description """The time period during which the temporary address is
+preferred.""" ;
+    yang:If-feature "ipv6-privacy-autoconf" ;
+    yang:Reference """RFC 4941: Privacy Extensions for Stateless Address
+          Autoconfiguration in IPv6
+          - TEMP_PREFERRED_LIFETIME""" ;
+    yang:Type "uint32" ;
+    yang:Units "seconds" .
+
+yang:temporary-valid-lifetime a yang:Leaf ;
+    rdfs:label "temporary-valid-lifetime" ;
+    yang:Default "604800" ;
+    yang:Description """The time period during which the temporary address
+is valid.""" ;
+    yang:If-feature "ipv6-privacy-autoconf" ;
+    yang:Reference """RFC 4941: Privacy Extensions for Stateless Address
+          Autoconfiguration in IPv6
+          - TEMP_VALID_LIFETIME""" ;
+    yang:Type "uint32" ;
+    yang:Units "seconds" .
+
+yang:address a yang:List ;
+    rdfs:label "address" ;
+    yang:Description "The list of IPv4 addresses on the interface.",
+        "The list of IPv6 addresses on the interface." ;
+    yang:Key "ip" ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:ip,
+        yang:origin,
+        yang:prefix-length,
+        yang:status,
+        yang:subnet .
+
+yang:enabled a yang:Leaf ;
+    rdfs:label "enabled" ;
+    yang:Default "true" ;
+    yang:Description """Controls whether IPv4 is enabled or disabled on this
+interface.  When IPv4 is enabled, this interface is
+connected to an IPv4 stack, and the interface can send
+and receive IPv4 packets.""",
+        """Controls whether IPv6 is enabled or disabled on this
+interface.  When IPv6 is enabled, this interface is
+connected to an IPv6 stack, and the interface can send
+and receive IPv6 packets.""" ;
+    yang:Type "boolean" .
+
+yang:forwarding a yang:Leaf ;
+    rdfs:label "forwarding" ;
+    yang:Default "false" ;
+    yang:Description """Controls IPv4 packet forwarding of datagrams received by,
+but not addressed to, this interface.  IPv4 routers
+forward datagrams.  IPv4 hosts do not (except those
+source-routed via the host).""",
+        """Controls IPv6 packet forwarding of datagrams received by,
+but not addressed to, this interface.  IPv6 routers
+forward datagrams.  IPv6 hosts do not (except those
+source-routed via the host).""",
+        """Indicates whether IPv4 packet forwarding is enabled or
+disabled on this interface.""",
+        """Indicates whether IPv6 packet forwarding is enabled or
+disabled on this interface.""" ;
+    yang:Reference """RFC 4861: Neighbor Discovery for IP version 6 (IPv6)
+          Section 6.2.1, IsRouter""" ;
+    yang:Status "deprecated" ;
+    yang:Type "boolean" .
+
+yang:ip a yang:Leaf ;
+    rdfs:label "ip" ;
+    yang:Description "The IPv4 address of the neighbor node.",
+        "The IPv4 address on the interface.",
+        "The IPv6 address of the neighbor node.",
+        "The IPv6 address on the interface." ;
+    yang:Status "deprecated" ;
+    yang:Type "inet:ipv4-address-no-zone",
+        "inet:ipv6-address-no-zone" .
+
+yang:ipv4 a yang:Container ;
+    rdfs:label "ipv4" ;
+    yang:Config "false" ;
+    yang:Description "Interface-specific parameters for the IPv4 address family.",
+        "Parameters for the IPv4 address family." ;
+    yang:Presence """Enables IPv4 unless the 'enabled' leaf
+(which defaults to 'true') is set to 'false'""",
+        "Present if IPv4 is enabled on this interface" ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:address,
+        yang:enabled,
+        yang:forwarding,
+        yang:mtu,
+        yang:neighbor .
+
+yang:ipv6 a yang:Container ;
+    rdfs:label "ipv6" ;
+    yang:Config "false" ;
+    yang:Description "Parameters for the IPv6 address family." ;
+    yang:Presence """Enables IPv6 unless the 'enabled' leaf
+(which defaults to 'true') is set to 'false'""",
+        "Present if IPv6 is enabled on this interface" ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:address,
+        yang:autoconf,
+        yang:dup-addr-detect-transmits,
+        yang:enabled,
+        yang:forwarding,
+        yang:mtu,
+        yang:neighbor .
+
+yang:mtu a yang:Leaf ;
+    rdfs:label "mtu" ;
+    yang:Description """The size, in octets, of the largest IPv4 packet that the
+interface will send and receive.""",
+        """The size, in octets, of the largest IPv4 packet that the
+interface will send and receive.
+
+The server may restrict the allowed values for this leaf,
+depending on the interface's type.
+
+If this leaf is not configured, the operationally used MTU
+depends on the interface's type.""",
+        """The size, in octets, of the largest IPv6 packet that the
+interface will send and receive.""",
+        """The size, in octets, of the largest IPv6 packet that the
+interface will send and receive.
+
+The server may restrict the allowed values for this leaf,
+depending on the interface's type.
+
+If this leaf is not configured, the operationally used MTU
+depends on the interface's type.""" ;
+    yang:Range "1280..max",
+        "68..max" ;
+    yang:Reference "RFC 791: Internet Protocol",
+        """RFC 8200: Internet Protocol, Version 6 (IPv6)
+          Specification
+          Section 5""" ;
+    yang:Status "deprecated" ;
+    yang:Type "uint16",
+        "uint32" ;
+    yang:Units "octets" .
+
+yang:neighbor a yang:List ;
+    rdfs:label "neighbor" ;
+    yang:Description """A list of mappings from IPv4 addresses to
+link-layer addresses.
+
+Entries in this list in the intended configuration are
+used as static entries in the ARP Cache.
+
+In the operational state, this list represents the ARP
+Cache.""",
+        """A list of mappings from IPv4 addresses to
+link-layer addresses.
+
+This list represents the ARP Cache.""",
+        """A list of mappings from IPv6 addresses to
+link-layer addresses.
+
+Entries in this list in the intended configuration are
+used as static entries in the Neighbor Cache.
+
+In the operational state, this list represents the
+Neighbor Cache.""",
+        """A list of mappings from IPv6 addresses to
+link-layer addresses.
+
+This list represents the Neighbor Cache.""" ;
+    yang:Key "ip" ;
+    yang:Reference "RFC 4861: Neighbor Discovery for IP version 6 (IPv6)",
+        "RFC 826: An Ethernet Address Resolution Protocol" ;
+    yang:Status "deprecated" ;
+    yang:hasChild yang:ip,
+        yang:is-router,
+        yang:link-layer-address,
+        yang:origin,
+        yang:state .
+
+yang:origin a yang:Leaf ;
+    rdfs:label "origin" ;
+    yang:Config "false" ;
+    yang:Description "The origin of this address.",
+        "The origin of this neighbor entry." ;
+    yang:Status "deprecated" ;
+    yang:Type "ip-address-origin",
+        "neighbor-origin" .
+
+yang:prefix-length a yang:Leaf ;
+    rdfs:label "prefix-length" ;
+    yang:Description "The length of the subnet prefix." ;
+    yang:Mandatory "true" ;
+    yang:Range "0..128",
+        "0..32" ;
+    yang:Status "deprecated" ;
+    yang:Type "uint8" .
+

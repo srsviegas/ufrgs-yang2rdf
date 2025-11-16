@@ -1,0 +1,34 @@
+@prefix if: <urn:ietf:params:xml:ns:yang:ietf-interfaces#> .
+@prefix inst: <http://example.org/instances#> .
+@prefix ip: <urn:ietf:params:xml:ns:yang:ietf-ip#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+inst:eth0_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth0 ;
+    ip:ip "192.168.10.1" ;
+    ip:prefix-length 24 .
+
+inst:eth0_ipv6 a ip:ipv6-address ;
+    ip:interface inst:eth0 ;
+    ip:ip "fe80::1" .
+
+inst:eth1_ipv4 a ip:ipv4-address ;
+    ip:interface inst:eth1 ;
+    ip:ip "10.0.0.5" ;
+    ip:prefix-length 24 .
+
+inst:eth2 a if:Interface ;
+    if:enabled true ;
+    if:name "eth2" ;
+    if:oper-status "up" .
+
+inst:eth1 a if:Interface ;
+    if:enabled true ;
+    if:name "eth1" ;
+    if:oper-status "down" .
+
+inst:eth0 a if:Interface ;
+    if:enabled true ;
+    if:name "eth0" ;
+    if:oper-status "up" .
+
