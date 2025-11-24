@@ -5,7 +5,7 @@ from logger import Logger
 
 from interfaces import count_interfaces, list_interfaces, show_interface_details
 from status import status_up, status_down
-from inconsistencies import find_inconsistencies, enable_interface, disable_interface
+from inconsistencies import find_inconsistencies, enable_interface, disable_interface, verify_overlaps
 
 IETF_INTERFACES_FILE = "rdf/ietf-interfaces.ttl"
 IETF_IP_FILE = "rdf/ietf-ip.ttl"
@@ -27,6 +27,7 @@ def print_menu(instances_file=None, graph_size=0, interfaces_count=0):
     print(f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}  show{colorama.Style.NORMAL} <interface_name>{colorama.Fore.RESET} - Show details of the specified interface")
     print(f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}  list{colorama.Style.RESET_ALL} - List all interfaces with their details")
     print(f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}  check-inconsistencies{colorama.Style.RESET_ALL} - Finds all enabled interfaces without an IP address assigned")
+    print(f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}  verify-overlaps{colorama.Style.RESET_ALL} - Finds all overlapping and duplicate CIDR prefixes among interfaces")
     print(f"{colorama.Style.BRIGHT}{colorama.Fore.GREEN}  exit{colorama.Style.RESET_ALL} - Exit the program")
     print(f"\n{colorama.Fore.CYAN}======================================================================================={colorama.Fore.RESET}") 
 
@@ -74,6 +75,8 @@ def main_loop(graph):
                     print(f"  Interface: {name} ({iface})")
             else:
                 print(f"{colorama.Fore.GREEN}No inconsistencies found.{colorama.Fore.RESET}")
+        elif command.startswith("verify"):
+            verify_overlaps(graph)
         else:
             Logger.error(f"Unknown command: {command}")
 
