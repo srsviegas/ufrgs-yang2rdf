@@ -1,6 +1,8 @@
 import sys
 import random
 from rdflib import Graph, Namespace, Literal, RDF, URIRef
+import ipaddress
+from rdflib.namespace import XSD
 
 INST = Namespace("http://example.org/instances#")
 IF   = Namespace("urn:ietf:params:xml:ns:yang:ietf-interfaces#")
@@ -29,6 +31,27 @@ def random_prefix():
 
 def random_oper_status():
     return random.choice(["up", "down"])
+
+def random_cidr():
+    # random ip
+    ip_int = random.randint(0, 2**32 - 1)
+    ip_addr = ipaddress.IPv4Address(ip_int)
+
+    # random prefix
+    prefix = random.randint(16, 30)
+
+    # creates interface, to be able to get the 1st and last
+    # adress easily
+    iface = ipaddress.ip_interface(f"{ip_addr}/{prefix}")
+    network = iface.network
+
+    return {
+        "host_ip": str(ip_addr),
+        "prefix": prefix,
+        "network": str(network.network_address),
+        "broadcast": str(network.broadcast_address),
+        "cidr": network.with_prefixlen
+    }
 
 
 def generate_instances(count: int = DEFAULT_COUNT, inconsistency_pct: float = INCONSISTENCY_PCT) -> Graph:
@@ -61,6 +84,15 @@ def generate_instances(count: int = DEFAULT_COUNT, inconsistency_pct: float = IN
             g.add((ipv4_uri, IP.ip, Literal(ipv4_addr)))
             g.add((ipv4_uri, IP["prefix-length"], Literal(prefix)))
             g.add((ipv4_uri, IP.interface, iface_uri))
+
+            
+            cidr = random_cidr()
+            g.add((ipv4_uri, IP.cidr, Literal(cidr["cidr"], datatype=XSD.string)))
+
+            start = int(cidr["network"])
+            end = int(cidr["broadcast"])
+            g.add((ipv4_uri, IP["network-start"], Literal(start, datatype=XSD.integer)))
+            g.add((ipv4_uri, IP["network-end"], Literal(end, datatype=XSD.integer)))
 
             if random.random() < 0.5:
                 ipv6_addr = random_ip_v6()
