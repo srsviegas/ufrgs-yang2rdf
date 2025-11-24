@@ -11,6 +11,7 @@ IP   = Namespace("urn:ietf:params:xml:ns:yang:ietf-ip#")
 DEFAULT_COUNT = 20
 INCONSISTENCY_PCT = 0.15 
 OVERLAP_PCT = 0.10
+CORE_NET = ipaddress.IPv4Network("10.0.0.0/12")
 
 def random_ip_v4():
     net = random.choice([
@@ -31,6 +32,29 @@ def random_prefix():
 
 def random_oper_status():
     return random.choice(["up", "down"])
+
+
+def random_cidr_within_core():
+    # choose a prefix size that makes sense
+    prefix = random.choice([18, 19, 20, 21, 22, 24, 25, 26])
+
+    # split the CORE_NET into subnets of the chosen prefix
+    possible = list(CORE_NET.subnets(new_prefix=prefix))
+
+    # choose one subnet
+    network = random.choice(possible)
+
+    # pick a host IP inside the subnet
+    host_ip = network.network_address + random.randint(1, max(1, network.num_addresses - 2))
+
+    return {
+        "host_ip": str(host_ip),
+        "prefix": prefix,
+        "network": str(network.network_address),
+        "broadcast": str(network.broadcast_address),
+        "cidr": network.with_prefixlen
+    }
+
 
 def random_cidr():
     # random ip
@@ -103,7 +127,7 @@ def generate_instances(count: int = DEFAULT_COUNT,
             }
 
         else:
-            cidr = random_cidr()
+            cidr = random_cidr_within_core()
             ip_addr = cidr["host_ip"]
             prefix = cidr["prefix"]
 
