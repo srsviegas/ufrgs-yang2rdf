@@ -10,7 +10,7 @@ IP   = Namespace("urn:ietf:params:xml:ns:yang:ietf-ip#")
 
 DEFAULT_COUNT = 20
 INCONSISTENCY_PCT = 0.15 
-
+OVERLAP_PCT = 0.10
 
 def random_ip_v4():
     net = random.choice([
@@ -54,11 +54,15 @@ def random_cidr():
     }
 
 
-def generate_instances(count: int = DEFAULT_COUNT, inconsistency_pct: float = INCONSISTENCY_PCT) -> Graph:
+def generate_instances(count: int = DEFAULT_COUNT, 
+                       inconsistency_pct: float = INCONSISTENCY_PCT,
+                       overlap_pct: float = OVERLAP_PCT) -> Graph:
     g = Graph()
     g.bind("inst", INST)
     g.bind("if",   IF)
     g.bind("ip",   IP)
+
+    previous_networks = []
 
     for i in range(count):
         name = f"eth{i}"
@@ -76,30 +80,61 @@ def generate_instances(count: int = DEFAULT_COUNT, inconsistency_pct: float = IN
         if enabled and random.random() < inconsistency_pct:
             has_ip = False
 
-        if has_ip:
-            ipv4_addr = random_ip_v4()
-            prefix = random_prefix()
-            ipv4_uri = INST[f"{name}_ipv4"]
-            g.add((ipv4_uri, RDF.type, IP["ipv4-address"]))
-            g.add((ipv4_uri, IP.ip, Literal(ipv4_addr)))
-            g.add((ipv4_uri, IP["prefix-length"], Literal(prefix)))
-            g.add((ipv4_uri, IP.interface, iface_uri))
+        if not has_ip:
+            continue
 
-            
+        make_overlap = len(previous_networks) > 0 and random.random() < overlap_pct
+
+        if make_overlap:
+            base_net = random.choice(previous_networks)
+
+            # smaller subnet, garantees overlap
+            prefix = min(base_net.prefixlen + 2, 30)
+            overlapping_net = list(base_net.subnets(new_prefix=prefix))[0]
+
+            network = overlapping_net
+            ip_addr = str(network.network_address + 1)  # host IP inside subnet
+            cidr = {
+                "host_ip": str(ip_addr),
+                "prefix": prefix,
+                "network": str(network.network_address),
+                "broadcast": str(network.broadcast_address),
+                "cidr": network.with_prefixlen
+            }
+
+        else:
             cidr = random_cidr()
-            g.add((ipv4_uri, IP.cidr, Literal(cidr["cidr"], datatype=XSD.string)))
+            ip_addr = cidr["host_ip"]
+            prefix = cidr["prefix"]
 
-            start = int(cidr["network"])
-            end = int(cidr["broadcast"])
-            g.add((ipv4_uri, IP["network-start"], Literal(start, datatype=XSD.integer)))
-            g.add((ipv4_uri, IP["network-end"], Literal(end, datatype=XSD.integer)))
+            network = ipaddress.IPv4Network(cidr["cidr"], strict=False)
 
-            if random.random() < 0.5:
-                ipv6_addr = random_ip_v6()
-                ipv6_uri = INST[f"{name}_ipv6"]
-                g.add((ipv6_uri, RDF.type, IP["ipv6-address"]))
-                g.add((ipv6_uri, IP.ip, Literal(ipv6_addr)))
-                g.add((ipv6_uri, IP.interface, iface_uri))
+        
+        previous_networks.append(network)
+
+        ipv4_addr = ip_addr
+        prefix = prefix
+        ipv4_uri = INST[f"{name}_ipv4"]
+        g.add((ipv4_uri, RDF.type, IP["ipv4-address"]))
+        g.add((ipv4_uri, IP.ip, Literal(ipv4_addr)))
+        g.add((ipv4_uri, IP["prefix-length"], Literal(prefix)))
+        g.add((ipv4_uri, IP.interface, iface_uri))
+
+        
+        g.add((ipv4_uri, IP.cidr, Literal(cidr["cidr"], datatype=XSD.string)))
+
+        start = int(ipaddress.IPv4Address(cidr["network"]))
+        end = int(ipaddress.IPv4Address(cidr["broadcast"]))
+        g.add((ipv4_uri, IP["network-start"], Literal(start, datatype=XSD.integer)))
+        g.add((ipv4_uri, IP["network-end"], Literal(end, datatype=XSD.integer)))
+
+
+        if random.random() < 0.5:
+            ipv6_addr = random_ip_v6()
+            ipv6_uri = INST[f"{name}_ipv6"]
+            g.add((ipv6_uri, RDF.type, IP["ipv6-address"]))
+            g.add((ipv6_uri, IP.ip, Literal(ipv6_addr)))
+            g.add((ipv6_uri, IP.interface, iface_uri))
 
 
     return g
@@ -120,6 +155,7 @@ if __name__ == "__main__":
 
     count = int(sys.argv[2]) if len(sys.argv) > 2 else DEFAULT_COUNT
     incons = float(sys.argv[3]) / 100.0 if len(sys.argv) > 3 else INCONSISTENCY_PCT
+    overlap = float(sys.argv[4]) / 100.0 if len(sys.argv) > 4 else OVERLAP_PCT
 
     if count <= 0 or not (0 <= incons <= 1):
         usage()
@@ -127,4 +163,5 @@ if __name__ == "__main__":
     g = generate_instances(count=count, inconsistency_pct=incons)
     g.serialize(destination=output_file, format="turtle")
     print(f"Generated {count} interfaces → {output_file}")
-    print(f"  • {incons*100:.0f}% enabled but without IP (inconsistencies)")
+    print(f"  • {incons*100:.0f}% enabled but without IP (inconsistency)")
+    print(f"  • {overlap*100:.0f}% with overlapping or duplicated sub-net (inconsistency)")
